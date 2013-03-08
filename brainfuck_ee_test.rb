@@ -17,4 +17,10 @@ class BrainfuckEETest < Test::Unit::TestCase
     brainfuckEE(code)
     assert_equal "Hello World!\n", @output.string
   end
+  
+  def test_ignores_extra_chars
+    code = '+++++  ++++[>+++ahah++\n++<-]>++.'
+    brainfuckEE(code)
+    assert_equal "A", @output.string
+  end
 end
