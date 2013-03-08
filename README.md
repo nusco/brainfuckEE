@@ -1,4 +1,4 @@
-brainfuck
-=========
+Brainfuck Enterprise Edition
+============================
 
-Another brainfuck implementation, just because.
+A [brainfuck](http://en.wikipedia.org/wiki/Brainfuck)-to-Ruby compiler. Just because I can.
