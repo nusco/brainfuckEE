@@ -69,8 +69,8 @@ class BrainfuckEETest < Test::Unit::TestCase
           <.[-]                    Output ROT13ed character from copy and clear it
           <-,+                     Read next character
       ]                            End character reading loop"
-    brainfuckEE(code, 'abcd')
-    assert_equal "nopq", @output.string
+    brainfuckEE(code, 'abcde')
+    assert_equal "nopqr", @output.string
   end
   
   def test_ignores_extra_chars
