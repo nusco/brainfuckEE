@@ -13,7 +13,28 @@ class BrainfuckEETest < Test::Unit::TestCase
   end
   
   def test_hello_world
-    code = '++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.'
+    code = "
+      +++++ +++++             initialize counter (cell #0) to 10
+      [                       use loop to set the next four cells to 70/100/30/10
+          > +++++ ++              add  7 to cell #1
+          > +++++ +++++           add 10 to cell #2 
+          > +++                   add  3 to cell #3
+          > +                     add  1 to cell #4
+          <<<< -                  decrement counter (cell #0)
+      ]                   
+      > ++ .                  print 'H'
+      > + .                   print 'e'
+      +++++ ++ .              print 'l'
+      .                       print 'l'
+      +++ .                   print 'o'
+      > ++ .                  print ' '
+      << +++++ +++++ +++++ .  print 'W'
+      > .                     print 'o'
+      +++ .                   print 'r'
+      ----- - .               print 'l'
+      ----- --- .             print 'd'
+      > + .                   print '!'
+      > .                     print '\n'"
     brainfuckEE(code)
     assert_equal "Hello World!\n", @output.string
   end
@@ -47,8 +68,7 @@ class BrainfuckEETest < Test::Unit::TestCase
           <[-]                     Clear remainder from first division if second division was skipped
           <.[-]                    Output ROT13ed character from copy and clear it
           <-,+                     Read next character
-      ]                            End character reading loop
-    "
+      ]                            End character reading loop"
     brainfuckEE(code, 'abcd')
     assert_equal "nopq", @output.string
   end
