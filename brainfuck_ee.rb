@@ -7,7 +7,7 @@ def brainfuckEE(code, input = '')
     '.' => 'print mem[dp].chr',
     ',' => '(c = input.slice!(0)) ? mem[dp] = c.ord : return',
     '[' => 'while mem[dp] != 0 do',
-    ']' => 'end',
+    ']' => 'end'
   })
 
   ruby = [
