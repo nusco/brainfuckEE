@@ -5,7 +5,7 @@ def brainfuckEE(code, input = '')
     '+' => 'mem[dp] += 1',
     '-' => 'mem[dp] -= 1',
     '.' => 'print mem[dp].chr',
-    ',' => 'return if input.empty?; mem[dp] = input[0].ord; input = input[1..-1]',
+    ',' => 'return if input.empty?; mem[dp] = input.slice!(0).ord',
     '[' => 'while mem[dp] != 0 do',
     ']' => 'end',
   })
