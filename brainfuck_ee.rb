@@ -1,5 +1,5 @@
 def brainfuckEE(code, input = '')
-  ops = Hash.new(nil).merge({
+  ops = {
     '>' => 'dp += 1',
     '<' => 'dp -= 1',
     '+' => 'mem[dp] += 1',
@@ -8,7 +8,7 @@ def brainfuckEE(code, input = '')
     ',' => '(c = input.slice!(0)) ? mem[dp] = c.ord : return',
     '[' => 'while mem[dp] != 0 do',
     ']' => 'end'
-  })
+  }
 
   ruby = [
     'lambda {',
