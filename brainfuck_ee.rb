@@ -12,7 +12,7 @@ def brainfuckEE(code, input = '')
 
   ruby = [
     'lambda {',
-    'mem = [0] * 30_000',
+    'mem = Hash.new 0',
     'dp = 0',
     "input = '#{input}'",
     code.chars.map {|c| ops[c] }.compact,
