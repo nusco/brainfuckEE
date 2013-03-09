@@ -1,5 +1,5 @@
 def brainfuckEE(code, input = '')
-  ops = Hash.new('').merge({
+  ops = Hash.new(nil).merge({
     '>' => 'dp += 1',
     '<' => 'dp -= 1',
     '+' => 'mem[dp] += 1',
@@ -10,14 +10,14 @@ def brainfuckEE(code, input = '')
     ']' => 'end',
   })
 
-  require 'stringio'
-  ruby = StringIO.new
-  ruby.puts 'lambda {'
-  ruby.puts 'mem = [0] * 30_000'
-  ruby.puts 'dp = 0'
-  ruby.puts "input = '#{input}'"
-  code.each_char {|c| ruby.puts ops[c] }
-  ruby.puts '}.call'
+  ruby = [
+    'lambda {',
+    'mem = [0] * 30_000',
+    'dp = 0',
+    "input = '#{input}'",
+    code.chars.map {|c| ops[c] }.compact,
+    '}.call'
+  ].join "\n"
   
-  eval ruby.string
+  eval ruby
 end
