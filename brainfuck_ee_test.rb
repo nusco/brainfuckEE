@@ -1,6 +1,7 @@
 require 'test/unit'
 require_relative 'brainfuck_ee'
 
+# code samples from http://en.wikipedia.org/wiki/Brainfuck
 class BrainfuckEETest < Test::Unit::TestCase
   def setup
     require 'stringio'
