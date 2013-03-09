@@ -72,10 +72,4 @@ class BrainfuckEETest < Test::Unit::TestCase
     brainfuckEE(code, 'abcde')
     assert_equal "nopqr", @output.string
   end
-  
-  def test_ignores_extra_chars
-    code = '+++++  ++++[>+++ahah++\n++<-]>++.'
-    brainfuckEE(code)
-    assert_equal "A", @output.string
-  end
 end
