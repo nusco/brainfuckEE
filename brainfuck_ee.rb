@@ -11,12 +11,10 @@ def brainfuckEE(code, input = '')
   }
 
   ruby = [
-    'lambda {',
     'mem = Hash.new 0',
     'dp = 0',
     "input = '#{input}'",
-    code.chars.map {|c| ops[c] }.compact,
-    '}.call'
+    code.chars.map {|c| ops[c] }.compact
   ].join "\n"
   
   eval ruby
